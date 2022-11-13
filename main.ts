@@ -5,7 +5,7 @@ input.onButtonPressed(Button.A, function () {
     } else if (test == 0) {
         messageing.sendString("con")
     } else if (test == -1) {
-        if (rps == 3){
+        if (rps == 3) {
             rps = 0
         }
         rps += 1
@@ -58,6 +58,9 @@ messageing.onReceivedString(function (receivedString) {
         test = -1
     } else if (receivedString.substr(0, 2) == "12") {
         rpsr = parseFloat(receivedString.substr(2))
+        if (sum == 1 && rpsr != 0) {
+            basic.showString("" + (win(rps, rpsr)))
+        }
     }
 })
 input.onButtonPressed(Button.AB, function () {
@@ -77,8 +80,9 @@ input.onButtonPressed(Button.AB, function () {
     } else if (test == -1) {
         test = -2
         messageing.sendString("12" + ("" + rps))
+        sum = 1
     } else if (test == -2) {
-        basic.showString(win(rps, rpsr))
+        basic.showString("" + (win(rps, rpsr)))
     }
 })
 input.onButtonPressed(Button.B, function () {
@@ -113,6 +117,8 @@ let test = 0
 let rpsr = 0
 let freq = 0
 let rps = 0
+let sum = 0
+sum = 0
 rps = 1
 basic.showNumber(0)
 radio.sendNumber(0)
@@ -120,3 +126,9 @@ freq = 10
 rpsr = 0
 test = 1
 messageing.connect(freq)
+
+        if (sum == 1 && rpsr != 0) {
+            basic.showString("" + (win(rps, rpsr)))
+        }
+    
+
