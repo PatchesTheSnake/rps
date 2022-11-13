@@ -5,6 +5,9 @@ input.onButtonPressed(Button.A, function () {
     } else if (test == 0) {
         messageing.sendString("con")
     } else if (test == -1) {
+        if (rps == 3){
+            rps = 0
+        }
         rps += 1
         if (rps == 1) {
             basic.showIcon(IconNames.Square)
@@ -54,7 +57,7 @@ messageing.onReceivedString(function (receivedString) {
         basic.showIcon(IconNames.Square)
         test = -1
     } else if (receivedString.substr(0, 2) == "12") {
-        rpsr = parseFloat(receivedString.substr(2, 0))
+        rpsr = parseFloat(receivedString.substr(2))
     }
 })
 input.onButtonPressed(Button.AB, function () {
@@ -85,6 +88,9 @@ input.onButtonPressed(Button.B, function () {
     } else if (test == 0) {
         test = 1
     } else if (test == -1) {
+        if (rps == 1) {
+            rps = 4
+        }
         rps += -1
         if (rps == 1) {
             basic.showIcon(IconNames.Square)
