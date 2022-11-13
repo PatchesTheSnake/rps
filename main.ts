@@ -29,18 +29,18 @@ input.onButtonPressed(Button.A, function () {
 function win (pl1: number, pl2: number) {
     if (pl1 > pl2) {
         if (pl1 == 3 && pl2 == 1) {
-            return 1
+            return "you won"
         } else {
-            return 2
+            return "opponent won"
         }
     } else if (pl1 < pl2) {
         if (pl2 == 3 && pl1 == 1) {
-            return 2
+            return "opponent won"
         } else {
-            return 1
+            return "you won"
         }
     }
-    return 3
+    return "tie"
 }
 messageing.onReceivedString(function (receivedString) {
     if (receivedString == "con") {
@@ -78,7 +78,7 @@ input.onButtonPressed(Button.AB, function () {
         test = -2
         messageing.sendString("12" + ("" + rps))
     } else if (test == -2) {
-        basic.showNumber(win(rps, rpsr))
+        basic.showString(win(rps, rpsr))
     }
 })
 input.onButtonPressed(Button.B, function () {
