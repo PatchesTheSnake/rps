@@ -81,6 +81,9 @@ input.onButtonPressed(Button.AB, function () {
         test = -2
         messageing.sendString("12" + ("" + rps))
         sum = 1
+        if (sum == 1 && rpsr != 0) {
+            basic.showString("" + (win(rps, rpsr)))
+        }
     } else if (test == -2) {
         basic.showString("" + (win(rps, rpsr)))
     }
